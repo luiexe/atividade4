@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeuSom, Formulário de Interesses Musicais</title>
+  <meta name="description" content="Formulário para registrar os interesses musicais de uma pessoa.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--CABECALHO-->
+  <header class="site-header">
+    <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitulo">
+      <title id="logoTitulo">Logo do MeuSom</title>
+      <circle cx="32" cy="32" r="30" class="logo-fundo"/>
+      <!-- disco de vinil -->
+      <circle cx="32" cy="32" r="22" class="logo-disco"/>
+      <circle cx="32" cy="32" r="15" class="logo-sulco"/>
+      <circle cx="32" cy="32" r="5" class="logo-centro"/>
+      <!-- nota musical por cima -->
+      <path d="M38 14 L38 38" class="logo-nota" stroke-width="4" stroke-linecap="round"/>
+      <path d="M38 14 Q46 16 48 24" class="logo-nota" fill="none" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="33" cy="39" rx="6" ry="4.5" class="logo-nota-cabeca"/>
+    </svg>
+    <div>
+      <p class="site-nome">MeuSom</p>
+      <h1>Formulário de Interesses Musicais</h1>
+    </div>
+  </header>
+
+  <main>
+    <p class="instrucoes">
+      Conte pra gente do que você gosta de ouvir! Os campos marcados com
+      <span class="obrigatorio">*</span> são obrigatórios. Somente maiores de 18 anos podem enviar os dados.
+    </p>
+
+    <form id="formulario" action="#" method="post" novalidate>
+
+      <!--DADOS PESSOAIS-->
+      <fieldset>
+        <legend>Dados pessoais</legend>
+
+        <div class="campo">
+          <label for="nome">Nome completo <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input type="text" id="nome" name="nome" required autofocus
+                 minlength="5" maxlength="80" autocomplete="name"
+                 placeholder="Ex.: Maria da Silva"
+                 aria-describedby="erro-nome">
+          <span class="erro" id="erro-nome" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required maxlength="100"
+                 autocomplete="email" placeholder="nome@exemplo.com"
+                 aria-describedby="dica-email erro-email">
+          <small class="dica" id="dica-email">Formato: nome@dominio.com</small>
+          <span class="erro" id="erro-email" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input type="tel" id="telefone" name="telefone" required
+                 pattern="\(\d{2}\) \d{4,5}-\d{4}" maxlength="15"
+                 autocomplete="tel" placeholder="(41) 99999-9999"
+                 aria-describedby="dica-telefone erro-telefone">
+          <small class="dica" id="dica-telefone">Formato: (DDD) 99999-9999 ou (DDD) 3333-3333</small>
+          <span class="erro" id="erro-telefone" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="nascimento">Data de nascimento <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <!-- os atributos min (idade maxima) e max (18 anos atras) sao definidos pelo javascript -->
+          <input type="date" id="nascimento" name="nascimento" required
+                 autocomplete="bday"
+                 aria-describedby="dica-nascimento erro-nascimento">
+          <small class="dica" id="dica-nascimento">É preciso ter 18 anos ou mais.</small>
+          <span class="erro" id="erro-nascimento" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="foto">Foto de perfil <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input type="file" id="foto" name="foto" required
+                 accept="image/png, image/jpeg, image/webp"
+                 aria-describedby="dica-foto erro-foto">
+          <small class="dica" id="dica-foto">Imagem PNG, JPG ou WEBP de até 2 MB.</small>
+          <span class="erro" id="erro-foto" aria-live="polite"></span>
+        </div>
+      </fieldset>
+
+      <!--GOSTO MUSICAL-->
+      <fieldset>
+        <legend>Gosto musical</legend>
+
+        <fieldset class="grupo-opcoes" id="estilos" aria-describedby="erro-estilos">
+          <legend>Estilos musicais preferidos (escolha 1 ou mais) <span class="obrigatorio" aria-hidden="true">*</span></legend>
+          <div class="grade-opcoes">
+            <label><input type="checkbox" name="estilos" value="Rock"> Rock</label>
+            <label><input type="checkbox" name="estilos" value="Pop"> Pop</label>
+            <label><input type="checkbox" name="estilos" value="Metal"> Metal</label>
+            <label><input type="checkbox" name="estilos" value="Indie"> Indie</label>
+            <label><input type="checkbox" name="estilos" value="Jazz"> Jazz</label>
+            <label><input type="checkbox" name="estilos" value="Blues"> Blues</label>
+            <label><input type="checkbox" name="estilos" value="Rap / Hip-Hop"> Rap / Hip-Hop</label>
+            <label><input type="checkbox" name="estilos" value="Eletrônica"> Eletrônica</label>
+            <label><input type="checkbox" name="estilos" value="Reggae"> Reggae</label>
+            <label><input type="checkbox" name="estilos" value="Clássica"> Clássica</label>
+            <label><input type="checkbox" name="estilos" value="MPB"> MPB</label>
+            <label><input type="checkbox" name="estilos" value="Samba"> Samba</label>
+            <label><input type="checkbox" name="estilos" value="Sertanejo"> Sertanejo</label>
+            <label><input type="checkbox" name="estilos" value="Forró"> Forró</label>
+            <label><input type="checkbox" name="estilos" value="Funk"> Funk</label>
+          </div>
+          <span class="erro" id="erro-estilos" aria-live="polite"></span>
+        </fieldset>
+
+        <div class="campo">
+          <label for="artistas">Artistas dos estilos escolhidos <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <textarea id="artistas" name="artistas" rows="8" required
+                    placeholder="Um artista por linha, por exemplo:&#10;Pink Floyd&#10;Elis Regina&#10;Daft Punk"
+                    aria-describedby="dica-artistas erro-artistas"></textarea>
+          <small class="dica" id="dica-artistas">Escreva um nome por linha (mínimo de 3 artistas).</small>
+          <span class="erro" id="erro-artistas" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="cantor">Melhor cantor(a) da história <span class="obrigatorio" aria-hidden="true">*</span></label>
+          <!-- lista longa: opcoes agrupadas com optgroup -->
+          <select id="cantor" name="cantor" required aria-describedby="erro-cantor">
+            <option value="">Selecione...</option>
+            <optgroup label="Cantoras brasileiras">
+              <option value="elis-regina">Elis Regina</option>
+              <option value="gal-costa">Gal Costa</option>
+              <option value="maria-bethania">Maria Bethânia</option>
+              <option value="marisa-monte">Marisa Monte</option>
+              <option value="rita-lee">Rita Lee</option>
+              <option value="cassia-eller">Cássia Eller</option>
+            </optgroup>
+            <optgroup label="Cantores brasileiros">
+              <option value="tim-maia">Tim Maia</option>
+              <option value="milton-nascimento">Milton Nascimento</option>
+              <option value="caetano-veloso">Caetano Veloso</option>
+              <option value="cazuza">Cazuza</option>
+              <option value="ney-matogrosso">Ney Matogrosso</option>
+              <option value="djavan">Djavan</option>
+            </optgroup>
+            <optgroup label="Cantoras internacionais">
+              <option value="aretha-franklin">Aretha Franklin</option>
+              <option value="whitney-houston">Whitney Houston</option>
+              <option value="ella-fitzgerald">Ella Fitzgerald</option>
+              <option value="nina-simone">Nina Simone</option>
+              <option value="amy-winehouse">Amy Winehouse</option>
+              <option value="adele">Adele</option>
+            </optgroup>
+            <optgroup label="Cantores internacionais">
+              <option value="freddie-mercury">Freddie Mercury</option>
+              <option value="michael-jackson">Michael Jackson</option>
+              <option value="elvis-presley">Elvis Presley</option>
+              <option value="frank-sinatra">Frank Sinatra</option>
+              <option value="stevie-wonder">Stevie Wonder</option>
+              <option value="robert-plant">Robert Plant</option>
+            </optgroup>
+          </select>
+          <span class="erro" id="erro-cantor" aria-live="polite"></span>
+        </div>
+      </fieldset>
+
+      <!--ALBUNS-->
+      <fieldset class="grupo-opcoes" id="albuns" aria-describedby="contador-albuns erro-albuns">
+        <legend>Seus 3 álbuns preferidos <span class="obrigatorio" aria-hidden="true">*</span></legend>
+        <p class="dica">
+          Escolha <strong>exatamente 3</strong> álbuns da lista dos mais vendidos da história.
+          <span id="contador-albuns" class="contador">0 de 3 selecionados</span>
+        </p>
+        <!-- os checkboxes sao criados pelo javascript a partir da lista da atividade de tabelas,
+             agrupados por decada -->
+        <div id="lista-albuns" class="lista-albuns"></div>
+        <span class="erro" id="erro-albuns" aria-live="polite"></span>
+      </fieldset>
+
+      <!-- resumo dos erros, aparece logo acima dos botoes -->
+      <div id="resumo-erros" class="resumo-erros" tabindex="-1" hidden>
+        <h2>Corrija os problemas abaixo:</h2>
+        <ul id="lista-erros"></ul>
+      </div>
+
+      <div class="botoes">
+        <button type="reset" class="botao botao-secundario">&#10006; Limpar</button>
+        <button type="submit" class="botao botao-principal">Enviar &#10148;</button>
+      </div>
+    </form>
+
+    <!--CONFIRMACAO (aparece quando nao ha erros)-->
+    <section id="confirmacao" class="confirmacao" tabindex="-1" hidden aria-labelledby="titulo-confirmacao">
+      <h2 id="titulo-confirmacao">Confira seus dados</h2>
+      <p>Está tudo certo? Confirme para enviar.</p>
+      <dl id="resumo-dados" class="resumo-dados"></dl>
+      <div class="botoes">
+        <button type="button" id="botao-voltar" class="botao botao-secundario">&#8592; Não, quero corrigir</button>
+        <button type="button" id="botao-confirmar" class="botao botao-principal">&#10004; Sim, enviar dados</button>
+      </div>
+    </section>
+
+    <!-- mensagem final -->
+    <section id="sucesso" class="sucesso" tabindex="-1" hidden>
+      <h2>Dados enviados!</h2>
+      <p id="mensagem-sucesso"></p>
+      <div class="botoes">
+        <button type="button" id="botao-novo" class="botao botao-principal">Preencher novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <!--RODAPE-->
+  <footer class="site-footer">
+    <p>Trabalho desenvolvido por: <strong>Luis Augusto Petrochewski</strong></p>
+    <p>Contato: <a href="mailto:luisaugustosilva@alunos.utfpr.edu.br">luisaugustosilva@alunos.utfpr.edu.br</a></p>
+    <p>
+      Licença: este trabalho está licenciado sob a
+      <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)</a>.
+    </p>
+    <p>&copy; 2026 MeuSom: projeto acadêmico da disciplina de Padrões Web, UTFPR.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
